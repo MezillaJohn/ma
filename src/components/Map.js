@@ -3,7 +3,7 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoibXBqb2huIiwiYSI6ImNsZGRodWdvcDAzcXozbnBuMXc2dHFsZGIifQ.li8Y34IHqaFKcSE8-QPwZQ";
+  "pk.eyJ1IjoibXBqb2huIiwiYSI6ImNsZGVob3NzbTBkb2IzcHMwN3p2eWM5bGgifQ.Uv6TeT7jVUREpVNudM-xlQ";
 
 export default function App({ cityData }) {
   // console.log(cityData);
