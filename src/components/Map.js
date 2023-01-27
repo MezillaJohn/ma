@@ -5,7 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 //   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoibXBqb2huIiwiYSI6ImNsZGVob3NzbTBkb2IzcHMwN3p2eWM5bGgifQ.Uv6TeT7jVUREpVNudM-xlQ";
+  "pk.eyJ1IjoibXBqb2huIiwiYSI6ImNsZGVvc3p2dTAxZXozcG8xajhqczdnbmMifQ.TKSByJe-q4rNZH18vI2AQg";
 
 export default function App({ cityData }) {
   // console.log(cityData);
