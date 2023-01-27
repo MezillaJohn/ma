@@ -27,8 +27,8 @@ const Cities = ({ getCity }) => {
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
 
-  today.setHours(16, 0, 0);
-  tomorrow.setHours(16, 0, 0);
+  today.setHours(19, 0, 0);
+  tomorrow.setHours(19, 0, 0);
 
   const todayFormatted = today.toISOString().slice(0, 19).replace("T", " ");
   const tomorrowFormatted = tomorrow
