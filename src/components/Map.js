@@ -2,7 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+mapboxgl.accessToken =
+  "pk.eyJ1IjoibXBqb2huIiwiYSI6ImNsZGRodWdvcDAzcXozbnBuMXc2dHFsZGIifQ.li8Y34IHqaFKcSE8-QPwZQ";
 
 export default function App({ cityData }) {
   // console.log(cityData);
