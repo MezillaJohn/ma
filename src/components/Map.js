@@ -42,7 +42,7 @@ export default function App({ cityData }) {
         </p>
          <h3> Tommorow's Forcast </h3>
         <p>
-        <div>Weather = ${cityData.descToday}, Humidity = ${cityData.humidityToday}g/m3, Temperature = ${cityData.tempToday}k</div>
+        <div>Weather = ${cityData.descTom}, Humidity = ${cityData.humidityToday}g/m3, Temperature = ${cityData.tempToday}k</div>
         </p>
       </div>
         `

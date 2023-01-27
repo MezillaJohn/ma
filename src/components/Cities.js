@@ -19,22 +19,30 @@ const Cities = ({ getCity }) => {
     descTom: "Light Rain",
   });
 
+  console.log(cityData);
+
   useEffect(() => {
     getCity(cityData);
   }, [cityData, getCity]);
 
-  const today = new Date();
-  const tomorrow = new Date();
-  tomorrow.setDate(today.getDate() + 1);
+  var today = new Date();
+  var todayFormatted =
+    today.getFullYear() +
+    "-" +
+    ("0" + (today.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + today.getDate()).slice(-2);
+  console.log(todayFormatted);
 
-  today.setHours(19, 0, 0);
-  tomorrow.setHours(19, 0, 0);
-
-  const todayFormatted = today.toISOString().slice(0, 19).replace("T", " ");
-  const tomorrowFormatted = tomorrow
-    .toISOString()
-    .slice(0, 19)
-    .replace("T", " ");
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var tomorrowFormatted =
+    tomorrow.getFullYear() +
+    "-" +
+    ("0" + (tomorrow.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + tomorrow.getDate()).slice(-2);
+  console.log(tomorrowFormatted);
 
   useEffect(() => {
     if (searchTerm !== null) {
@@ -54,12 +62,16 @@ const Cities = ({ getCity }) => {
           }
 
           const data = await res.json();
+          console.log(data);
           const weatherData = data.list.filter((data) => {
+            // console.log(data.dt_txt.includes(todayFormatted));
             return (
-              data.dt_txt === todayFormatted ||
-              data.dt_txt === tomorrowFormatted
+              data.dt_txt.includes(todayFormatted) ||
+              data.dt_txt.includes(tomorrowFormatted)
             );
           });
+
+          console.log(weatherData);
 
           setCityData({
             lng: data.city.coord.lon,
@@ -68,10 +80,11 @@ const Cities = ({ getCity }) => {
             pressureToday: weatherData[0].main.pressure,
             tempToday: weatherData[0].main.temp,
             descToday: weatherData[0].weather[0].description,
-            humidityTom: weatherData[1].main.humidity,
-            pressureTom: weatherData[1].main.pressure,
-            tempTom: weatherData[1].main.temp,
-            descTom: weatherData[1].weather[0].description,
+            humidityTom: weatherData[7].main.humidity,
+            pressureTom: weatherData[7].main.pressure,
+            tempTom: weatherData[7].main.temp,
+            descTom: weatherData[7].weather[0].description,
+            descToday: weatherData[0].weather[0].description,
             name: data.city.name,
           });
         } catch (error) {
@@ -81,7 +94,7 @@ const Cities = ({ getCity }) => {
 
       fetchData(searchTerm.label);
     }
-  }, [searchTerm, todayFormatted, tomorrowFormatted]);
+  }, [searchTerm]);
 
   return (
     <>
